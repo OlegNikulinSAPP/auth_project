@@ -1,14 +1,14 @@
 from django.db import models
 import bcrypt
 import jwt
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, UTC
 from django.conf import settings
 
 
 class User(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    patronymic = models.CharField(max_length=50, blank=True, null=True)
+    patronymic = models.CharField(max_length=50, blank=True)
     email = models.EmailField(unique=True)
     password_hash = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
@@ -32,9 +32,9 @@ class User(models.Model):
     def generate_token(self):
         """Генерация JWT токена"""
         payload = {
-            'user_id': self.id,
-            'exp': datetime.utcnow() + timedelta(days=1),
-            'iat': datetime.utcnow()
+            'user_id': self.pk,
+            'exp': datetime.now(UTC) + timedelta(days=1),
+            'iat': datetime.now(UTC)
         }
         return jwt.encode(payload, settings.JWT_SECRET_KEY, algorithm='HS256')
 
