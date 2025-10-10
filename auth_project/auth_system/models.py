@@ -6,6 +6,8 @@ from django.conf import settings
 
 
 class User(models.Model):
+    objects = models.Manager()
+
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     patronymic = models.CharField(max_length=50, blank=True)
@@ -40,8 +42,12 @@ class User(models.Model):
 
 
 class Role(models.Model):
+    objects = models.Manager()
+
     name = models.CharField(max_length=50, unique=True)
     description = models.TextField(blank=True)
+
+    DoesNotExist: type
 
     def __str__(self):
         return self.name
@@ -49,6 +55,8 @@ class Role(models.Model):
 
 class BusinessElement(models.Model):
     """Бизнес-сущности, к которым нужен доступ"""
+    objects = models.Manager()
+
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True)
 
@@ -58,6 +66,8 @@ class BusinessElement(models.Model):
 
 class AccessRule(models.Model):
     """Правила доступа ролей к бизнес-сущностям"""
+    objects = models.Manager()
+
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
     element = models.ForeignKey(BusinessElement, on_delete=models.CASCADE)
 
@@ -78,6 +88,8 @@ class AccessRule(models.Model):
 
 class UserRole(models.Model):
     """Связь пользователя с ролью"""
+    objects = models.Manager()
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
 
@@ -87,6 +99,8 @@ class UserRole(models.Model):
 
 class Session(models.Model):
     """Активные сессии пользователей"""
+    objects = models.Manager()
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     token = models.CharField(max_length=500)
     expires_at = models.DateTimeField()
