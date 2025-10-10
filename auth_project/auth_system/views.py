@@ -13,6 +13,15 @@ from .permissions import permission_required
 @method_decorator(csrf_exempt, name='dispatch')
 class RegisterView(View):
     def post(self, request):
+        # Выводим информацию о запросе в консоль
+        print("=== REGISTER REQUEST ===")
+        print(f"Method: {request.method}")
+        print(f"Path: {request.path}")
+        print(f"Headers: {dict(request.headers)}")
+        print(f"Body: {request.body}")
+        print(f"Content-Type: {request.content_type}")
+        print("========================")
+
         try:
             data = json.loads(request.body)
 
