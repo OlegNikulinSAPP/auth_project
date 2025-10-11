@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0edf99e2-376d-40b3-8505-2747db7aeeb3" name="Changes" comment="first commit">
+      <change beforePath="$PROJECT_DIR$/.idea/auth_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/auth_project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth_project/auth_system/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth_project/auth_system/middleware.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth_project/auth_system/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth_project/auth_system/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth_project/auth_system/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth_project/auth_system/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth_project/auth_system/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth_project/auth_system/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth_project/auth_system/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth_project/auth_system/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/auth_project/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,17 +51,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
-    &quot;Python.views.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.logging_config.executor": "Run",
+    "Python.tests.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Locadm/PycharmProjects/auth_project/auth_project/auth_system"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Locadm\PycharmProjects\auth_project\auth_project\auth_system" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Locadm\PycharmProjects\auth_project\auth_project\auth_system" />
     </key>
@@ -63,7 +72,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-c69650fc56ca-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15619.17" />
+        <option value="bundled-python-sdk-975db3bf15a3-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.18034.82" />
       </set>
     </attachedChunks>
   </component>

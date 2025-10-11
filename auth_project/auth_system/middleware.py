@@ -3,15 +3,25 @@ import jwt
 from django.conf import settings
 from .models import User, Session
 
+import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='[%(asctime)s] %(levelname)s: %(message)s',
+)
+
 
 class JWTAuthenticationMiddleware:
     def __init__(self, get_response):
+        logging.info('[class JWTAuthenticationMiddleware] Middleware ЗАПУЩЕН!')
         self.get_response = get_response
 
     def __call__(self, request):
+        logging.info(f"[class JWTAuthenticationMiddleware] Обрабатываю запрос: {request.path}")
         # Пропускаем публичные эндпоинты
         public_paths = ['/api/register/', '/api/login/']
         if any(request.path.startswith(path) for path in public_paths):
+            logging.info('[class JWTAuthenticationMiddleware] Пропускаю публичные эндпоинты и передаю следующему '
+                         'middleware')
             return self.get_response(request)
 
         # Получаем токен из заголовка Authorization

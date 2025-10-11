@@ -3,10 +3,12 @@ import bcrypt
 import jwt
 from datetime import datetime, timedelta, UTC
 from django.conf import settings
+from django.utils import timezone
 
 
 class User(models.Model):
     objects = models.Manager()
+    DoesNotExist: type
 
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -107,4 +109,4 @@ class Session(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def is_expired(self):
-        return datetime.now() > self.expires_at
+        return timezone.now() > self.expires_at
