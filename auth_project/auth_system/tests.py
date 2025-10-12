@@ -8,7 +8,7 @@ import requests
 
 BASE_URL = "http://127.0.0.1:8000/api"
 
-#
+
 # def test_register():
 #     """Тестируем регистрацию"""
 #     print("🔐 Тестируем регистрацию...")
@@ -83,15 +83,34 @@ BASE_URL = "http://127.0.0.1:8000/api"
 #     if token:
 #         test_profile(token)  # 3. Профиль с токеном
 #         test_products(token)  # 4. Товары с токеном
-"""Тестируем логин"""
-print("\n🔑 Тестируем логин...")
 
-url = f"{BASE_URL}/login/"
-data = {
-    "email": "john@example.com",
-    "password": "password123"
+def test_login():
+    """Тестируем логин"""
+    print("\n🔑 Тестируем логин...")
+
+    url = f"{BASE_URL}/login/"
+    data = {
+        "email": "john@example.com",
+        "password": "password123"
+    }
+
+    response = requests.post(url, json=data)
+    print(f"Статус: {response.status_code}")
+    print(f"Ответ: {response.json()}")
+
+    if response.status_code == 200:
+        return response.json()['token']  # Сохраняем токен
+    return None
+
+
+test_login()
+
+url = f"{BASE_URL}/profile/"
+token = test_login()  # Получаем токен
+
+headers = {
+    'Authorization': f'Bearer {token}'  # ← В заголовках!
 }
 
-response = requests.post(url, json=data)
-print(f"Статус: {response.status_code}")
-print(f"Ответ: {response.json()}")
+response = requests.get(url, headers=headers)  # ✅ Сработает
+

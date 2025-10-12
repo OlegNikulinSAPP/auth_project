@@ -136,18 +136,20 @@ class LogoutView(View):
     def post(self, request):
         logging.info(f"[class LogoutView] Обрабатываю запрос: {request.path}")
         auth_header = request.META.get('HTTP_AUTHORIZATION', '')
+        logging.info(f"[class LogoutView] HTTP_AUTHORIZATION: {auth_header}")
 
         if auth_header.startswith('Bearer '):
             token = auth_header[7:]
             Session.objects.filter(token=token).delete()
 
-
+        logging.info("[class LogoutView] Пользователь успешно вышел из системы")
         return JsonResponse({'message': 'Logged out successfully'})
 
 
 @method_decorator(csrf_exempt, name='dispatch')
 class ProfileView(View):
     def get(self, request):
+        logging.info(f"[ProfileView] Обрабатываю запрос: {request.path}")
         if not hasattr(request, 'user'):
             return JsonResponse({'error': 'Authentication required'}, status=401)
 

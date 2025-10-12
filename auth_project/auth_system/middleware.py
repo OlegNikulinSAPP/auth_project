@@ -26,6 +26,7 @@ class JWTAuthenticationMiddleware:
 
         # Получаем токен из заголовка Authorization
         auth_header = request.META.get('HTTP_AUTHORIZATION', '')
+        logging.info(f"[class JWTAuthenticationMiddleware] HTTP_AUTHORIZATION: {auth_header}")
 
         if auth_header.startswith('Bearer '):
             token = auth_header[7:]
