@@ -47,6 +47,7 @@ class JWTAuthenticationMiddleware:
                         return JsonResponse({'error': 'Session expired'}, status=401)
 
                 except User.DoesNotExist:
+                    logging.error(f"User {user_id} not found or inactive")
                     return JsonResponse({'error': 'User not found'}, status=401)
 
             except jwt.ExpiredSignatureError:

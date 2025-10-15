@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-76szghw!zy@yl1ma+x-8bfv7j@6vt-hy!c=o6o%=h6%nj_u%r#'
 # Секретный ключ для JWT
-JWT_SECRET_KEY = 'your-secret-key-here'  # в реальном проекте использовать env переменную
+JWT_SECRET_KEY = 'secret-key-here'  # в реальном проекте использовать env переменную
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

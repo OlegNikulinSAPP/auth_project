@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 from .models import User, Session, UserRole, Role
 from .permissions import permission_required
 from django.utils import timezone
+import re
 
 import logging
 
@@ -37,6 +38,10 @@ class RegisterView(View):
             if data['password'] != data['password_confirm']:
                 logging.error("[class RegisterView] Пароли не совпадают")
                 return JsonResponse({'error': 'Пароли не совпадают'}, status=400)
+
+            email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+            if not re.match(email_pattern, data['email']):
+                return JsonResponse({'error': 'Invalid email format'}, status=400)
 
             # Проверяем уникальность email
             if User.objects.filter(email=data['email']).exists():
